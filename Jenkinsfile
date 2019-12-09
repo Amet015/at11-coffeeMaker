@@ -7,7 +7,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh './gradlew wrapper
+                sh './gradlew wrapper'
                 sh './gradlew build'
 		            
             }
