@@ -8,14 +8,14 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh './gradlew build'
-		            archiveArtifacts 'build/libs/*.jar'
+		            
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
-                sh './gradlew clean test'
-		            junit 'build/test-results/test/*.xml'
+                sh './gradlew test'
+		           
             }
         }
     } 
