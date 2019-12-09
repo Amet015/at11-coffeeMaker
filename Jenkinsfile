@@ -7,14 +7,14 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                bat './gradlew clean assemble'
+                sh './gradlew clean assemble'
 		            archiveArtifacts 'build/libs/*.jar'
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
-                bat './gradlew clean test'
+                sh './gradlew clean test'
 		            junit 'build/test-results/test/*.xml'
             }
         }
