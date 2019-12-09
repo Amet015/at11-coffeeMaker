@@ -19,5 +19,23 @@ pipeline {
 		           
             }
         }
+    }
+    post {
+      success {
+        mail to: "alanescalera.english@gmail.com",
+        subject:"SUCCESS: ${currentBuild.fullDisplayName}",
+        body: "Result: ${currentBuild.result}\
+         Job: ${env.JOB_NAME}\
+         Build: ${env.BUILD_NUMBER}\
+         URL: ${env.BUILD_URL}"
+      }
+      failure {
+        mail to: "alanescalera.english@gmail.com",
+        subject:"FAILURE: ${currentBuild.fullDisplayName}",
+        body: "Result: ${currentBuild.result}\
+         Job: ${env.JOB_NAME}\
+         Build: ${env.BUILD_NUMBER}\
+         URL: ${env.BUILD_URL}"
+      }
     } 
 }
